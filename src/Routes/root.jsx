@@ -1,32 +1,44 @@
-import { Layout, Menu, theme, ConfigProvider, notification } from 'antd';
-import { useEffect } from 'react';
+import { Layout, Menu, theme, ConfigProvider, notification, Typography, Space } from 'antd';
+import React, { useContext, useEffect } from 'react';
 import { Link, Outlet, useLocation, useSearchParams } from 'react-router-dom';
 import '../App.css';
 import { routes } from './routes';
+import { Footer } from 'antd/es/layout/layout';
+import packageJson from '../../package.json';
+import robotApiHost from '../Contexts/robotApiHost';
 
-
+const { Text } = Typography;
 const { Content, Sider } = Layout;
 
 
 export const Root = () => {
   let color_theme = "light";
   const [notificationApi, notificationContextHolder] = notification.useNotification();
+  const { host, setRobotApiHost } = useContext(robotApiHost);
 
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  if (searchParams.get("robot_host"))
   useEffect(() => {
-    notificationApi["warning"]({
-      message: 'CPU Overload',
-      description:
-        'Robot\'s API reports high CPU load(>=95%)',
-    });
-    notificationApi["error"]({
-      message: 'CPU Overheat',
-      description:
-        'Robot\'s API reports high CPU temperature(>=70°C)',
-    });
-  }, []);
+    
+    let robot_host = searchParams.get("robot_host");
+    if (robot_host) { // Set global context
+      setRobotApiHost({host: robot_host});
+      console.log(robot_host);
+    }
+  }, [])
+
+  // useEffect(() => {
+  //   notificationApi["warning"]({
+  //     message: 'CPU Overload',
+  //     description:
+  //       'Robot\'s API reports high CPU load(>=95%)',
+  //   });
+  //   notificationApi["error"]({
+  //     message: 'CPU Overheat',
+  //     description:
+  //       'Robot\'s API reports high CPU temperature(>=70°C)',
+  //   });
+  // }, []);
 
 
   return (
@@ -81,9 +93,33 @@ export const Root = () => {
             >
               {notificationContextHolder}
               <Outlet />
+
             </div>
           </Content>
+          <Footer style={{ textAlign: "center" }}>
+            <Space direction="vertical">
+              <Text>
+                RobotDevelopUI:{" "}
+                <Text code type="success">
+                  Version {packageJson.version}
+                </Text>
+              </Text>
+              <Text>
+                Connected to robot:{" "}
+                <Text code type="danger">
+                  No robot connected {host.host}
+                </Text>
+              </Text>
+              <Text>
+                RDUI deploy info:{" "}
+                <Text code type="success">
+                  {window.location.hostname.includes("fos.robotx.su") ? "Production build": "Local build"}
+                </Text>
+              </Text>
+            </Space>
+          </Footer>
         </Layout>
+
       </Layout>
     </ConfigProvider>
   );
