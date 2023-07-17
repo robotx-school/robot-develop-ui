@@ -1,6 +1,6 @@
 import { Layout, Menu, theme, ConfigProvider, notification } from 'antd';
 import { useEffect } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation, useSearchParams } from 'react-router-dom';
 import '../App.css';
 import { routes } from './routes';
 
@@ -13,6 +13,8 @@ export const Root = () => {
   const [notificationApi, notificationContextHolder] = notification.useNotification();
 
   const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  if (searchParams.get("robot_host"))
   useEffect(() => {
     notificationApi["warning"]({
       message: 'CPU Overload',
@@ -53,7 +55,7 @@ export const Root = () => {
           <Menu
             theme="dark"
             mode="inline"
-            defaultSelectedKeys={[location.pathname.slice(1)]}
+            defaultSelectedKeys={[location.pathname.slice(1).replace("rdui", "")]}
             items={routes.map(route => {
               return {
                 key: route.path,

@@ -45,7 +45,7 @@ export const routes = [
     path: 'settings',
     element: <>Settings Page placeholder</>,
     icon: <SettingOutlined />,
-    label: 'DBUI Settings'
+    label: 'RDUI Settings'
   },
 
 

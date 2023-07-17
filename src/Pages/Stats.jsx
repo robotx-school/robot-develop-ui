@@ -31,27 +31,27 @@ export const Stats = () => {
         {
             key: 'local_ip',
             item: 'Local IP',
-            value: '192.168.115.200'
+            value: 'N/A'
         },
         {
             key: 'auth_data',
-            item: 'Auth data',
+            item: 'SSH Auth data',
             value: 'pi:pi'
         },
         {
-            key: 'gl_git',
-            item: 'High-Level git hash',
-            value: '97b24441c6ae86d189d4cba92cadcaf976676cfe'
+            key: 'hl_api_ver',
+            item: 'High-Level API version',
+            value: '0.0.1'
         },
         {
             key: 'ros_status',
             item: 'ROS reports',
-            value: 'roscore up; noetic 1.15.14'
+            value: 'N/A'
         },
         {
             key: 'll_connection',
             item: 'Low-Level SPI connection',
-            value: 'Healthy (init packet control sum based check)'
+            value: 'Failed (init packet control sum based check)'
         },
 
     ];

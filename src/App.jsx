@@ -9,7 +9,7 @@ import { routes } from './Routes/routes';
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: '/rdui',
         element: <Root />,
         errorElement: <>404?!</>,
         children: routes
