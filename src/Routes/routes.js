@@ -1,6 +1,7 @@
 import React from 'react';
 import { BellOutlined, CodeOutlined, ControlOutlined, FundOutlined, SettingOutlined } from '@ant-design/icons';
 import { Stats } from '../Pages/Stats';
+import { Settings } from '../Pages/Settings';
 
 
 export const routes = [
@@ -43,7 +44,7 @@ export const routes = [
   },
   {
     path: 'settings',
-    element: <>Settings Page placeholder</>,
+    element: <Settings/>,
     icon: <SettingOutlined />,
     label: 'RDUI Settings'
   },

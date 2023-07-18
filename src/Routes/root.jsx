@@ -19,12 +19,8 @@ export const Root = () => {
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   useEffect(() => {
-    
     let robot_host = searchParams.get("robot_host");
-    if (robot_host) { // Set global context
-      setRobotApiHost({host: robot_host});
-      console.log(robot_host);
-    }
+    if (robot_host) setRobotApiHost({ host: robot_host });
   }, [])
 
   // useEffect(() => {
@@ -113,7 +109,7 @@ export const Root = () => {
               <Text>
                 RDUI deploy info:{" "}
                 <Text code type="success">
-                  {window.location.hostname.includes("fos.robotx.su") ? "Production build": "Local build"}
+                  {window.location.hostname.includes("fos.robotx.su") ? "Production build" : "Local build"}
                 </Text>
               </Text>
             </Space>
