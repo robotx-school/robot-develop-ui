@@ -1,7 +1,8 @@
 import React from 'react';
-import { BellOutlined, CodeOutlined, ControlOutlined, FundOutlined, SettingOutlined } from '@ant-design/icons';
+import { BellOutlined, CodeOutlined, ControlOutlined, FundOutlined, SettingOutlined, ToolOutlined } from '@ant-design/icons';
 import { Stats } from '../Pages/Stats';
 import { Settings } from '../Pages/Settings';
+import { BoardTest } from '../Pages/BoardTest';
 
 
 export const routes = [
@@ -41,6 +42,12 @@ export const routes = [
     element: <>CTD Terminal Page placeholder</>,
     icon: <CodeOutlined />,
     label: 'CTD Terminal'
+  },
+  {
+    path: 'board_test',
+    element: <BoardTest/>,
+    icon: <ToolOutlined />,
+    label: 'Board test'
   },
   {
     path: 'settings',

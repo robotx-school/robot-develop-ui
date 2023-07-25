@@ -63,7 +63,7 @@ export const Root = () => {
           <Menu
             theme="dark"
             mode="inline"
-            defaultSelectedKeys={[location.pathname.slice(1).replace("rdui", "")]}
+            defaultSelectedKeys={[location.pathname.replace("/rdui", "").slice(1) ]}
             items={routes.map(route => {
               return {
                 key: route.path,
