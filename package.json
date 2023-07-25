@@ -1,7 +1,7 @@
 {
   "name": "robot_develop_ui",
   "homepage": "http://fos.robotx.su/rdui/",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@ant-design/charts": "^1.4.2",
