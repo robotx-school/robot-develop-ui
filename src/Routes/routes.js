@@ -3,6 +3,7 @@ import { BellOutlined, CodeOutlined, ControlOutlined, FundOutlined, SettingOutli
 import { Stats } from '../Pages/Stats';
 import { Settings } from '../Pages/Settings';
 import { BoardTest } from '../Pages/BoardTest';
+import { CTDTerminal } from '../Pages/CTDTerminal';
 
 
 export const routes = [
@@ -11,7 +12,7 @@ export const routes = [
     path: '',
     element: <Stats />,
     icon: <FundOutlined />,
-    label: 'Stats',
+    label: 'Status',
   },
   {
     path: 'motors',
@@ -39,19 +40,19 @@ export const routes = [
   },
   {
     path: 'ctd_terminal',
-    element: <>CTD Terminal Page placeholder</>,
+    element: <CTDTerminal />,
     icon: <CodeOutlined />,
     label: 'CTD Terminal'
   },
   {
     path: 'board_test',
-    element: <BoardTest/>,
+    element: <BoardTest />,
     icon: <ToolOutlined />,
     label: 'Board test'
   },
   {
     path: 'settings',
-    element: <Settings/>,
+    element: <Settings />,
     icon: <SettingOutlined />,
     label: 'RDUI Settings'
   },

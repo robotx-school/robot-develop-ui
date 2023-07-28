@@ -45,6 +45,7 @@ export const Root = () => {
     >
       <Layout style={{
         marginLeft: 200,
+        
       }}
       >
         <Sider
@@ -76,7 +77,7 @@ export const Root = () => {
         <Layout>
           <Content
             style={{
-              margin: '24px 16px 0',
+              margin: '0 16px 0',
               overflow: 'initial',
             }}
           >
@@ -110,6 +111,12 @@ export const Root = () => {
                 RDUI deploy info:{" "}
                 <Text code type="success">
                   {window.location.hostname.includes("fos.robotx.su") ? "Production build" : "Local build"}
+                </Text>
+              </Text>
+              <Text>
+                Robot API compatibility:{" "}
+                <Text code type="success">
+                  {packageJson.robot_api_versions}
                 </Text>
               </Text>
             </Space>

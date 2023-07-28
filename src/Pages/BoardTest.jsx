@@ -20,7 +20,7 @@ function download_as_file(filename, data) {
 
 export const BoardTest = () => {
     const changeTestStatus = (test_name, new_status) => {
-        setTests(tests.map(test => (test.name === test_name) ? { key: test.key, name: test.name, description: test.description, status: new_status, payload: test.payload } : test));
+        setTests(tests.map(test => (test.name === test_name) ? { key: test.key, name: test.name, description: test.description, status: new_status, payload: test.payload, type: test.type } : test));
     }
     const testStatus = () => {
         return `${tests.filter(test => test.status === "OK").length}/${tests.length}`
@@ -117,7 +117,7 @@ export const BoardTest = () => {
             <Space direction="horizontal">
                 <Button onClick={() => { download_as_file("report.txt", tests.map(test => `${test.name}: ${test.status}`).join("\n") + `\n\n----------\nTotal tests passed: ${testStatus()}`) }}>Download report</Button>
                 <Button type="primary" danger onClick={() => {
-                    setTests(tests.map(test => { return { key: test.key, name: test.name, description: test.description, status: "Not tested", payload: test.payload } }));
+                    setTests(tests.map(test => { return { key: test.key, name: test.name, description: test.description, status: "Not tested", payload: test.payload, type: test.type } }));
                 }
                 }>Clear test results</Button>
             </Space>
