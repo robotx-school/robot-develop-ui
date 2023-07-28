@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { Button, Space, Table, Tag, Typography } from 'antd';
-
-const { Title } = Typography;
+import { Button, Space, Table, Tag, Card } from 'antd';
 
 function download_as_file(filename, data) {
     const blob = new Blob([data], { type: "text/csv" });
@@ -111,8 +109,7 @@ export const BoardTest = () => {
     ]);
 
     return (
-        <>
-            <Title level={3}>Board test: {testStatus()} passed</Title>
+        <Card title={`Board test: ${testStatus()} passed`} style={{ height: "100%" }}>
             <Table columns={columns} dataSource={tests} />
             <Space direction="horizontal">
                 <Button onClick={() => { download_as_file("report.txt", tests.map(test => `${test.name}: ${test.status}`).join("\n") + `\n\n----------\nTotal tests passed: ${testStatus()}`) }}>Download report</Button>
@@ -121,6 +118,6 @@ export const BoardTest = () => {
                 }
                 }>Clear test results</Button>
             </Space>
-        </>
+        </Card>
     )
 }

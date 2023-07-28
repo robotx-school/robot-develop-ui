@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
-import { Button, Form, Input, Typography } from 'antd';
+import { Button, Form, Input, Card } from 'antd';
 import robotApiHost from '../Contexts/robotApiHost';
-
-const { Title } = Typography;
 
 
 export const Settings = () => {
@@ -12,8 +10,7 @@ export const Settings = () => {
     };
 
     return (
-        <>
-            <Title level={3}>RDUI Settings</Title>
+        <Card title="RDUI Settings" style={{ height: "100%" }}>
             <Form
                 name="basic"
                 layout="inline"
@@ -40,6 +37,6 @@ export const Settings = () => {
                     </Button>
                 </Form.Item>
             </Form>
-        </>
+        </Card>
     )
 }

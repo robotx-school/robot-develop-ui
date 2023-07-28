@@ -1,15 +1,9 @@
-import React, { useState } from "react";
-import { Row, Col, Input, Button, Form, Card, Typography } from 'antd';
-
-const { Text } = Typography;
+import React from "react";
+import { Row, Col, Card } from 'antd';
+import { Terminal } from "../Components/Terminal";
 
 
 export const CTDTerminal = () => {
-    const [ctdTerminalData, setCtdTerminalData] = useState([
-        ["client", "CTD Client Hello package sent"],
-        ["ctd", "CTD online! API version: 0.0.1; Local IP: 0.0.0.0; Stream port: 0000"]
-    ]);
-
     return (
         <>
             <Row gutter={[10, 10]}>
@@ -20,41 +14,7 @@ export const CTDTerminal = () => {
                 </Col>
                 <Col xs={24} xl={12}>
                     <Card title={"CTD Terminal"} style={{ height: "100%" }}>
-                        <div>
-                            {ctdTerminalData.map((entry, index) => (
-                                <div key={index} class="terminal-entry">
-                                    <Text code type={entry[0] === "client" ? "success" : "danger"}>{entry[0] === "client" ? "Client:>" : "CTD:>"}</Text>
-                                    <Text>{entry[1]}</Text>
-                                </div>
-                            ))}
-                        </div>
-                        <Form
-                            name="basic"
-                            layout="inline"
-                            requiredMark=""
-                            autoComplete="off"
-                            onFinish={(data) => { setCtdTerminalData([...ctdTerminalData, ["client", data.command]]) }}
-                            style={{ marginTop: 20 }}
-                        >
-                            <Form.Item
-                                style={{ width: "90%" }}
-                                name="command"
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: '',
-                                    },
-                                ]}
-                            >
-                                <Input placeholder="Command>" />
-                            </Form.Item>
-
-                            <Form.Item>
-                                <Button type="primary" htmlType="submit">
-                                    Send
-                                </Button>
-                            </Form.Item>
-                        </Form>
+                        <Terminal sendFunction={(cmd) => {console.log(cmd)}} initialCommands={["CTD_HELLO"]} serverPromptName="CTD:>"/>
                     </Card>
                 </Col>
             </Row>

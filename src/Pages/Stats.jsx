@@ -1,17 +1,17 @@
-import { Space, Typography, Table } from 'antd';
+import { Space, Typography, Table, Card } from 'antd';
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import axios from 'axios';
 import { UsageLiquid } from '../Components/UsageLiquid';
 import { TemperatureBullet } from '../Components/TemperatureBullet';
 
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
 export const Stats = () => {
     let color_theme = "light";
-    const [cpuUsage, SetCpuUsage] = useState(0);
-    const [ramUsage, SetRamUsage] = useState(0);
-    const [sdUsage, SetSdUsage] = useState(0);
+    const [cpuUsage, SetCpuUsage] = useState(0.1);
+    const [ramUsage, SetRamUsage] = useState(0.13);
+    const [sdUsage, SetSdUsage] = useState(0.29);
     const [cpuTemperature, SetCpuTemperature] = useState(0);
     const API_URL = "http://localhost:8000"; // FIXIT
 
@@ -74,8 +74,7 @@ export const Stats = () => {
 
 
     return (
-        <>
-            <Title level={3}>RPi Statistic</Title>
+        <Card title="SBC status" style={{ height: "100%" }}>
             <Space direction='horizontal' size='large' style={{ width: '100%', justifyContent: 'center', marginBottom: 40 }}>
                 <UsageLiquid percent={cpuUsage} color={"#8BC34A"} title={"CPU"} theme={color_theme} />
                 <UsageLiquid percent={ramUsage} color={"#4ac387"} title={"RAM"} theme={color_theme} />
@@ -84,6 +83,6 @@ export const Stats = () => {
             <Text strong>CPU temperature</Text>
             <TemperatureBullet current={cpuTemperature} />
             <Table dataSource={RpiTableData} columns={RpiTableColumns} />
-        </>
+        </Card>
     );
 };

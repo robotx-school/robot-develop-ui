@@ -1,5 +1,6 @@
-# Robot Debug UI
+# Robot Develop UI
 
-![image](https://github.com/robotx-school/eurobot-2024/assets/55328925/cc34b9d9-32a9-4a23-ac2c-af216eeb1400)
-Use for mechanics debug and development.
+![stats page](https://raw.githubusercontent.com/robotx-school/robot-develop-ui/master/images/index.png)
+
+Use for mechanics/electronics debug and development. For documentation and a user guide on using RDUI, go to [Wiki](https://github.com/robotx-school/robot-develop-ui/wiki/User-guide#user-guide) page
 

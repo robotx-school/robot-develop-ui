@@ -4,7 +4,7 @@ import { Stats } from '../Pages/Stats';
 import { Settings } from '../Pages/Settings';
 import { BoardTest } from '../Pages/BoardTest';
 import { CTDTerminal } from '../Pages/CTDTerminal';
-
+import { SPITerminal } from '../Pages/SPITerminal';
 
 export const routes = [
   {
@@ -34,7 +34,7 @@ export const routes = [
   },
   {
     path: 'spi_terminal',
-    element: <>SPI Terminal Page placeholder</>,
+    element: <SPITerminal />,
     icon: <CodeOutlined />,
     label: 'SPI Terminal'
   },
