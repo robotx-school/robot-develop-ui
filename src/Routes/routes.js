@@ -5,6 +5,7 @@ import { Settings } from '../Pages/Settings';
 import { BoardTest } from '../Pages/BoardTest';
 import { CTDTerminal } from '../Pages/CTDTerminal';
 import { SPITerminal } from '../Pages/SPITerminal';
+import { Joystick } from '../Pages/Joystick';
 
 export const routes = [
   {
@@ -28,7 +29,7 @@ export const routes = [
   },
   {
     path: 'joystick',
-    element: <>Joystick Page placeholder</>,
+    element: <Joystick />,
     icon: <ControlOutlined />,
     label: 'Joystick'
   },
