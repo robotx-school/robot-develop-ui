@@ -6,6 +6,8 @@ import { BoardTest } from '../Pages/BoardTest';
 import { CTDTerminal } from '../Pages/CTDTerminal';
 import { SPITerminal } from '../Pages/SPITerminal';
 import { Joystick } from '../Pages/Joystick';
+import { Motors } from '../Pages/Motors';
+import { Servos } from '../Pages/Servos';
 
 export const routes = [
   {
@@ -17,13 +19,13 @@ export const routes = [
   },
   {
     path: 'motors',
-    element: <>Motors Page placeholder</>,
+    element: <Motors />,
     icon: <BellOutlined />,
     label: 'Motors'
   },
   {
     path: 'servos',
-    element: <>Servos Page placeholder</>,
+    element: <Servos />,
     icon: <BellOutlined />,
     label: 'Servos'
   },

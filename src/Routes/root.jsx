@@ -45,12 +45,17 @@ export const Root = () => {
     >
       <Layout style={{
         marginLeft: 200,
-        
+
       }}
       >
         <Sider
           className="main-slider"
           breakpoint="lg"
+          onBreakpoint={(e) => {
+            if (e) {
+
+            }
+          }}
           style={{
             overflow: 'auto',
             height: '100vh',
@@ -64,7 +69,7 @@ export const Root = () => {
           <Menu
             theme="dark"
             mode="inline"
-            defaultSelectedKeys={[location.pathname.replace("/rdui", "").slice(1) ]}
+            defaultSelectedKeys={[location.pathname.replace("/rdui", "").slice(1)]}
             items={routes.map(route => {
               return {
                 key: route.path,

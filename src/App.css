@@ -11,7 +11,7 @@
   height: 45px;
   margin: 16px;
   background-size: 100% 100%;
-  background-image: url("https://raw.githubusercontent.com/robotx-school/eurobot-2024/master/logo.png");
+  background-image: url("../public/logos/logo_full.png");
   border-radius: 5px;
 }
 

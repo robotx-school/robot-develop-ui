@@ -112,11 +112,13 @@ export const BoardTest = () => {
         <Card title={`Board test: ${testStatus()} passed`} style={{ height: "100%" }}>
             <Table columns={columns} dataSource={tests} />
             <Space direction="horizontal">
+                <Button type="primary">Run</Button>
                 <Button onClick={() => { download_as_file("report.txt", tests.map(test => `${test.name}: ${test.status}`).join("\n") + `\n\n----------\nTotal tests passed: ${testStatus()}`) }}>Download report</Button>
                 <Button type="primary" danger onClick={() => {
                     setTests(tests.map(test => { return { key: test.key, name: test.name, description: test.description, status: "Not tested", payload: test.payload, type: test.type } }));
                 }
                 }>Clear test results</Button>
+                
             </Space>
         </Card>
     )
