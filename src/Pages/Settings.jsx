@@ -15,13 +15,11 @@ export const Settings = () => {
                 <Alert style={{ marginBottom: 20 }} type="warning" message="This settings will apply only for this RDUI tab. You can dump them to localstorage of your browser. Or you can clear them." />
                 <Form
                     name="basic"
-                    layout="inline"
-
                     onFinish={setRobotHost}
                     autoComplete="off"
                 >
                     <Form.Item
-                        label="Robot host(ip:port)"
+                        label="Robot host (ip:port)"
                         name="robotHost"
                         rules={[
                             {
@@ -30,12 +28,12 @@ export const Settings = () => {
                             },
                         ]}
                     >
-                        <Input />
+                        <Input style={{ width: 200 }} placeholder="0.0.0.0:9999" />
                     </Form.Item>
 
                     <Form.Item>
                         <Button type="primary" htmlType="submit">
-                            Set host
+                            Save
                         </Button>
                     </Form.Item>
                 </Form>

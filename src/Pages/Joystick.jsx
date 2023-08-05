@@ -5,12 +5,15 @@ const { Text } = Typography;
 
 export const Joystick = () => {
     const [lastKey, setLastKey] = useState("");
-    useEffect(() => {
-        document.addEventListener("keydown", function (event) {
+    const keyListener = (event) => {
+        if (["w", "a", "s", "d"].includes(event.key)) {
             setLastKey(event.key);
-            console.log(event);
-        });
-    }, [lastKey])
+        }
+    }
+    useEffect(() => {
+        document.addEventListener("keydown", keyListener);
+        return () => { document.removeEventListener("keydown", keyListener) }
+    }, [])
     return (
         <Row gutter={[10, 10]}>
             <Col xs={24} xl={12}>

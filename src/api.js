@@ -1,0 +1,3 @@
+const robotSbcStatus = (host) => {
+    fetch()
+}

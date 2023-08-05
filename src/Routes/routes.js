@@ -1,5 +1,5 @@
 import React from 'react';
-import { BellOutlined, CodeOutlined, ControlOutlined, FundOutlined, SettingOutlined, ToolOutlined } from '@ant-design/icons';
+import { BellOutlined, CodeOutlined, ControlOutlined, FundOutlined, SettingOutlined, ToolOutlined, BookOutlined } from '@ant-design/icons';
 import { Stats } from '../Pages/Stats';
 import { Settings } from '../Pages/Settings';
 import { BoardTest } from '../Pages/BoardTest';
@@ -59,6 +59,11 @@ export const routes = [
     icon: <SettingOutlined />,
     label: 'RDUI Settings'
   },
-
+  {
+    path: 'https://github.com/robotx-school/robot-develop-ui/wiki',
+    element: "",
+    icon: <BookOutlined />,
+    label: 'Docs'
+  },
 
 ];
