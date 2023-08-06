@@ -1,11 +1,13 @@
 import { Layout, Menu, theme, ConfigProvider, notification, Typography, Space } from 'antd';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useSearchParams } from 'react-router-dom';
 import '../App.css';
 import { routes } from './routes';
 import { Footer } from 'antd/es/layout/layout';
 import packageJson from '../../package.json';
 import robotApiHost from '../Contexts/robotApiHost';
+import { usePollingEffect } from '../Hooks/usePollingEffect';
+import { useRobotHelper } from '../Hooks/useRobotHelper';
 
 const { Text } = Typography;
 const { Content, Sider } = Layout;
@@ -15,9 +17,10 @@ export const Root = () => {
   let color_theme = "light";
   const [notificationApi, notificationContextHolder] = notification.useNotification();
   const { host, setRobotApiHost } = useContext(robotApiHost);
+  const {robotHost} = useRobotHelper();
 
   const location = useLocation();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams,] = useSearchParams();
   useEffect(() => {
     let robot_host = searchParams.get("robot_host");
     if (robot_host) setRobotApiHost({ host: robot_host });
@@ -35,6 +38,14 @@ export const Root = () => {
   //       'Robot\'s API reports high CPU temperature(>=70°C)',
   //   });
   // }, []);
+
+  // usePollingEffect(
+  //   async () => {
+  //     robotHost();
+  //   },
+  //   [],
+  //   { interval: 5000 }
+  // );
 
 
   return (

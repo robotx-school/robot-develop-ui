@@ -1,7 +1,7 @@
 {
   "name": "robot_develop_ui",
   "homepage": "http://fos.robotx.su/rdui/",
-  "version": "0.1.2",
+  "version": "0.1.3 Dev",
   "robot_api_versions": "0.0.1-0.0.1",
   "private": true,
   "dependencies": {

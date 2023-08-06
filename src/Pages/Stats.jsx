@@ -15,18 +15,18 @@ export const Stats = () => {
     const [cpuTemperature, SetCpuTemperature] = useState(0);
     const API_URL = "http://localhost:8000"; // FIXIT
 
-    const setStats = () => {
-        axios({ method: "GET", url: `${API_URL}/stats` }).then((response) => {
-            SetCpuUsage(response.data.cpu_usage);
-            SetRamUsage(response.data.ram_usage);
-            SetSdUsage(response.data.sd_usage);
-            SetCpuTemperature(response.data.cpu_temperature);
-        }).catch((response) => {
-            console.error("Can't get data");
-        });
-    }
+    // const setStats = () => {
+    //     axios({ method: "GET", url: `${API_URL}/stats` }).then((response) => {
+    //         SetCpuUsage(response.data.cpu_usage);
+    //         SetRamUsage(response.data.ram_usage);
+    //         SetSdUsage(response.data.sd_usage);
+    //         SetCpuTemperature(response.data.cpu_temperature);
+    //     }).catch((response) => {
+    //         console.error("Can't get data");
+    //     });
+    // }
 
-    useEffect(() => { setStats() }, [])
+    // useEffect(() => { setStats() }, [])
     const RpiTableData = [
         {
             key: 'local_ip',

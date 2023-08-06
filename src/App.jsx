@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     createBrowserRouter,
     RouterProvider
@@ -6,6 +6,7 @@ import {
 import { Root } from './Routes/root.jsx';
 import { routes } from './Routes/routes';
 import robotApiHost from './Contexts/robotApiHost.js';
+import { usePollingEffect } from './Hooks/usePollingEffect.js';
 
 const router = createBrowserRouter([
     {
@@ -18,9 +19,10 @@ const router = createBrowserRouter([
 
 
 const App = () => {
-    const [host, setHost] = useState({host: null})
+    const [host, setHost] = useState({ host: null })
+    useEffect(() => { console.log(host) }, []);
     return (
-        <robotApiHost.Provider value={{ host: host, setRobotApiHost: setHost}}>
+        <robotApiHost.Provider value={{ host: host, setRobotApiHost: setHost }}>
             <RouterProvider router={router} fallbackElement={<>Loading...</>} />
         </robotApiHost.Provider>
     )

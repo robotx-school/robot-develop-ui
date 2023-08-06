@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Input, Button, Form, Typography, Space } from 'antd';
+import { Input, Button, Form, Typography, Space, Tooltip } from 'antd';
 
 const { Text } = Typography;
 
 
 export const Terminal = ({ sendFunction, initialCommands, serverPromptName, inputPlaceholder = "Command>", autoCommands = [] }) => {
     const [terminalData, setTerminalData] = useState([]); // ["ctd", "CTD online! API version: 0.0.1; Local IP: 0.0.0.0; Stream port: 0000"]
-    const [inputCommand, setInputCommand] = useState();
     const sendComamnd = (command) => {
         sendFunction(command);
         setTerminalData([...terminalData, ["client", command]]);
@@ -23,7 +22,9 @@ export const Terminal = ({ sendFunction, initialCommands, serverPromptName, inpu
         <>
             <Space direction="horizontal" style={{ marginBottom: 15 }}>
                 {autoCommands.map((option, index) => (
-                    <Button onClick={() => { setInputCommand(option.command) }} key={index}>{option.title}</Button>
+                    <Tooltip title={option.tooltip} key={index}>
+                        <Button onClick={() => { sendComamnd(option.command) }}>{option.title}</Button>
+                    </Tooltip>
                 ))}
 
             </Space>
@@ -53,7 +54,7 @@ export const Terminal = ({ sendFunction, initialCommands, serverPromptName, inpu
                         },
                     ]}
                 >
-                    <Input placeholder={inputPlaceholder} value={"123"}/>
+                    <Input placeholder={inputPlaceholder}/>
                 </Form.Item>
 
                 <Form.Item>
